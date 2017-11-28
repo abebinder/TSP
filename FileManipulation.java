@@ -4,11 +4,11 @@ public class FileManipulation{
 
   int[][] readFile(String s){
     int[][]dummyarray=new int[1][1];
-    File tsp= new File(s); //instantiates a new object of type file with parameter of the filename from the working directory
+    File tsp= new File(s); 
     String allnumbers="";
     int citynumber=0;
     try{
-      Scanner fileScanner2 = new Scanner(tsp); //tries making a Scanner to read that file, needs to be in try/catch or it wont work
+      Scanner fileScanner2 = new Scanner(tsp); 
       citynumber=Integer.parseInt(fileScanner2.nextLine());
       int[][]matrix=new int[citynumber][citynumber];
       int counter=0;
@@ -25,5 +25,5 @@ public class FileManipulation{
       return matrix;
     }catch(Exception e){System.out.println(e.getMessage());}
     return dummyarray;
-  } //method to read any file in the working directory with string as parameter
+  } 
 }

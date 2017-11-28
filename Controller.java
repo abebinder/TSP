@@ -10,10 +10,8 @@ public class Controller{
   
   tsp.minpath= tsp.smartStartRepeated(matrix);
   
-  int[]cities=new int[matrix.length];
   
-  //int smartmin=tsp.findMinPath(matrix, 0, matrix.length, 0, 0);
-  int smartmin=tsp.findMinPath2(matrix,0,matrix.length,0,citiestouched);
+  int smartmin=tsp.findMinPath(matrix,0,matrix.length,0,citiestouched);
   
   System.out.println(smartmin);
   
@@ -21,7 +19,5 @@ public class Controller{
     System.out.println(tsp.bestroute.get(i));
   } 
   
-  //int theomin=tsp.getTheoMin(matrix, 0, 1);
-  //System.out.println(theomin);
   }
 }

@@ -9,9 +9,8 @@ public class TSP{
   ArrayList<Integer>route=new ArrayList<Integer>();
   
   
-  
-  
-  public int findMinPath2(int[][]matrix, int city, int original, int path, ArrayList<Integer> citiestouched){  
+
+  public int findMinPath(int[][]matrix, int city, int original, int path, ArrayList<Integer> citiestouched){  
     if(countOptions(matrix, city)==1){
       int continuedpath=path+matrix[city][0];
       if(continuedpath<minpath){
@@ -27,7 +26,7 @@ public class TSP{
           int continuedpath=path+matrix[city][i];
           int[][]updatedmatrix=nullColumn(matrix, i);
           route.add(i);
-          findMinPath2(updatedmatrix, i, original, continuedpath, citiestouched);
+          findMinPath(updatedmatrix, i, original, continuedpath, citiestouched);
           route.remove(route.size()-1);
           
         }
@@ -99,7 +98,6 @@ public class TSP{
         min=current;
       }
       
-      //System.out.println(min);
     }
     return min;
   }
@@ -123,20 +121,16 @@ public class TSP{
         if((currentmin==0)&&(!avoidCity(citiestouched, i))){
           currentmin=matrix[city][i];
           currentcityindex=i;
-          //System.out.println(currentmin);
         }
         else if((currentmin!=0)&&(!avoidCity(citiestouched,i))){
           if(matrix[city][i]<currentmin){
             currentmin=matrix[city][i];
             currentcityindex=i;
-            //System.out.println(currentmin);
           }
         }
       }
-      //System.out.println(genmin);
       genmin=genmin+currentmin;
       citiestouched.add(currentcityindex);
-      //System.out.println(citiestouched.size());
       if(citiestouched.size()==matrix.length){
         lastcity=true;
         genmin=getSmartStartingMin(matrix, citiestouched, currentcityindex, lastcity);
@@ -147,7 +141,6 @@ public class TSP{
       }
     }
     
-    //System.out.println(genmin);
     return genmin;
   }
   
