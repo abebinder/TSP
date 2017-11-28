@@ -1,0 +1,21 @@
+import java.util.*;
+import java.io.*;
+public class Controller{
+  public static void main(String[]args){
+  FileManipulation fileman= new FileManipulation();
+  TSP tsp=new TSP();
+  int[][]matrix=fileman.readFile("tsp_8");
+
+  ArrayList<Integer>cities=new ArrayList<Integer>();
+  
+  tsp.minpath= tsp.smartStartRepeated(matrix);
+  
+  //int smartmin=tsp.findMinPath(matrix, 0, matrix.length, 0, 0);
+  int smartmin=tsp.findMinPath2(matrix,0,matrix.length,0,cities);
+  
+  System.out.println(smartmin);
+  
+  //int theomin=tsp.getTheoMin(matrix, 0, 1);
+  //System.out.println(theomin);
+  }
+}
